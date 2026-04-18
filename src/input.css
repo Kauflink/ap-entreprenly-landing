@@ -1,0 +1,137 @@
+/* ─── Fuentes ──────────────────────────────────────────────────────────────── */
+@import url("https://fonts.googleapis.com/css2?family=Reddit+Sans:wght@400;500;600;700;800&display=swap");
+
+@import "tailwindcss";
+
+
+/* ─── Tema personalizado ───────────────────────────────────────────────────── */
+@theme {
+  /* Fuente */
+  --font-sans: "Reddit Sans", sans-serif;
+
+  /* Colores de marca */
+  --color-brand-orange:     #f38313;
+  --color-brand-peach:      #fce0d4;
+  --color-brand-grayLight:  #c9c9c9;
+  --color-brand-gray:       #666666;
+  --color-brand-yellow:     #fff7e1;
+  --color-brand-brown:      #835500;
+  --color-brand-brownDeep:  #511e00;
+  --color-brand-brownEarth: #473723;
+  --color-brand-black:      #0c0f12;
+  --color-brand-white:      #f6f4f4;
+
+  /* Sombras reutilizables */
+  --shadow-card: 0 18px 42px rgba(12, 15, 18, 0.08);
+  --shadow-soft: 0 24px 80px rgba(81, 30, 0, 0.12);
+}
+
+/* ─── Base ─────────────────────────────────────────────────────────────────── */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-brand-white);
+    font-family: var(--font-sans);
+    color: var(--color-brand-black);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Fondo de página con gradientes de marca */
+  :root {
+    background:
+      radial-gradient(circle at 0% 0%, rgba(243, 131, 19, 0.14), transparent 24%),
+      radial-gradient(circle at 100% 0%, rgba(199, 157, 8, 0.16), transparent 22%),
+      linear-gradient(#fffdf8 0%, #f6f4f4 100%);
+  }
+
+  /* Ocultar marcador nativo de <details> */
+  summary {
+    list-style: none;
+  }
+  summary::-webkit-details-marker {
+    display: none;
+  }
+
+  /* Selección de texto */
+  ::selection {
+    background-color: var(--color-brand-orange);
+    color: var(--color-brand-white);
+  }
+}
+
+/* ─── Componentes ──────────────────────────────────────────────────────────── */
+@layer components {
+
+  /* Grid de fondo decorativo */
+  .bg-grid-overlay {
+    opacity: 0.48;
+    background-image:
+      linear-gradient(rgba(81, 30, 0, 0.059) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(81, 30, 0, 0.059) 1px, transparent 1px);
+    background-size: 32px 32px;
+    mask-image: linear-gradient(rgba(0, 0, 0, 0.22), transparent 55%);
+    -webkit-mask-image: linear-gradient(rgba(0, 0, 0, 0.22), transparent 55%);
+  }
+
+  /* Halo de color del hero */
+  .hero-ambience {
+    background:
+      radial-gradient(circle at 12% 10%, rgba(243, 131, 19, 0.24), transparent 22%),
+      radial-gradient(circle at 82% 14%, rgba(199, 157, 8, 0.18), transparent 18%),
+      radial-gradient(circle at 76% 72%, rgba(252, 224, 212, 0.80), transparent 26%);
+  }
+
+  /* Etiqueta de sección tipo eyebrow */
+  .eyebrow {
+    @apply mb-4 inline-flex items-center gap-3 text-xs font-extrabold uppercase tracking-[0.2em] text-brand-brown;
+  }
+  .eyebrow::before {
+    content: "";
+    @apply h-0.5 w-8 rounded-full;
+    background-image: linear-gradient(90deg, #f38313, #c79d08);
+  }
+
+  /* Tarjeta con borde suave */
+  .soft-card {
+    @apply rounded-3xl border border-brand-brownDeep/10 p-6 shadow-card;
+  }
+
+  /* Etiqueta pequeña oscura */
+  .mini-tag {
+    @apply inline-flex rounded-full bg-brand-brownDeep/10 px-3 py-1 text-[11px] font-extrabold uppercase tracking-[0.18em] text-brand-brownDeep;
+  }
+
+  /* Etiqueta pequeña anaranjada */
+  .pill-tag {
+    @apply inline-flex rounded-full bg-brand-orange/10 px-3 py-1 text-xs font-extrabold uppercase tracking-[0.18em] text-brand-brownDeep;
+  }
+
+  /* Símbolo "+" de los FAQ */
+  .faq-plus {
+    @apply absolute right-0 top-0 text-3xl font-light leading-none text-brand-brown transition duration-200;
+  }
+  details[open] .faq-plus {
+    transform: rotate(45deg);
+  }
+
+  /* Botón de llamada a la acción principal */
+  .cta-primary {
+    @apply inline-flex min-h-14 items-center justify-center rounded-full
+           bg-brand-orange px-6 py-3
+           text-sm font-bold text-brand-white
+           shadow-[0_14px_30px_rgba(243,131,19,0.28)]
+           transition hover:-translate-y-0.5 hover:bg-[#e4770e];
+  }
+
+  /* Botón de llamada a la acción secundario */
+  .cta-secondary {
+    @apply inline-flex min-h-14 items-center justify-center rounded-full
+           border border-brand-brownDeep/12 bg-white/80 px-6 py-3
+           text-sm font-bold text-brand-brownDeep
+           backdrop-blur transition hover:-translate-y-0.5 hover:border-brand-brownDeep/25;
+  }
+}
