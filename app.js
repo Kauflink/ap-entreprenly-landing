@@ -251,7 +251,7 @@ const benefits = [
   },
   {
     title: "Menos perdida por perecibles",
-    copy: "Mayor visibilidad para detectar faltantes, exceso de rotacion o mermas.",
+    copy: "Mayor visibilidad para detectar faltantes, exceso de rotación o mermas.",
   },
   {
     title: "Mas control diario",
