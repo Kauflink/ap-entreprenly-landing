@@ -336,7 +336,7 @@ const plans = [
     description: "Une inventario, ventas, pedidos y caja en un solo flujo para comercios que ya necesitan trabajar con mas control.",
     monthly: "S/ 89",
     annualMonthly: "S/ 79",
-    monthlyNote: "Facturacion mensual",
+    monthlyNote: "Facturación mensual",
     annualNote: "Compromiso anual, facturado mes a mes",
     items: [
       "Productos y lotes ilimitados.",
