@@ -143,7 +143,7 @@ const translations = {
     "Si. La estructura comercial de la landing plantea una adopcion por etapas para que el negocio avance segun su ritmo y necesidad.": "Yes. The commercial structure proposes staged adoption so the business can move at its own pace and need.",
     "La balanza inteligente es obligatoria desde el primer momento?": "Is the smart scale mandatory from the start?",
     "No necesariamente. La propuesta puede crecer hacia una validacion fisica mas avanzada conforme el negocio lo requiera.": "Not necessarily. The product can grow toward more advanced physical validation as the business requires it.",
-    "Sirve si ya vendo por WhatsApp todos los dias?": "Does it help if I already sell through WhatsApp every day?",
+    "Sirve si ya vendo por WhatsApp todos los días?": "Does it help if I already sell through WhatsApp every day?",
     "Precisamente ahi esta una parte fuerte del valor: ordenar ese canal, reducir errores y conectarlo mejor con tu operacion diaria.": "That is exactly where much of the value is: organizing that channel, reducing errors, and connecting it better with daily operations.",
     "Da el siguiente paso": "Take the next step",
     "Haz que tu negocio venda con mas orden y menos incertidumbre.": "Make your business sell with more order and less uncertainty.",
@@ -202,7 +202,7 @@ const features = [
   {
     title: "Pedidos por WhatsApp",
     copy:
-      "Organiza la atencion del canal mas usado por tus clientes sin depender del celular todo el dia.",
+      "Organiza la atencion del canal mas usado por tus clientes sin depender del celular todo el día.",
     icon: "chat",
   },
   {
@@ -251,7 +251,7 @@ const benefits = [
   },
   {
     title: "Menos perdida por perecibles",
-    copy: "Mayor visibilidad para detectar faltantes, exceso de rotacion o mermas.",
+    copy: "Mayor visibilidad para detectar faltantes, exceso de rotación o mermas.",
   },
   {
     title: "Mas control diario",
@@ -266,7 +266,7 @@ const benefits = [
 const trustPoints = [
   {
     title: "Stock validado",
-    copy: "Menos riesgo de prometer productos que ya no estan disponibles.",
+    copy: "Menos riesgo de prometer productos que ya no están disponibles.",
   },
   {
     title: "Pagos confirmados",
@@ -336,7 +336,7 @@ const plans = [
     description: "Une inventario, ventas, pedidos y caja en un solo flujo para comercios que ya necesitan trabajar con mas control.",
     monthly: "S/ 89",
     annualMonthly: "S/ 79",
-    monthlyNote: "Facturacion mensual",
+    monthlyNote: "Facturación mensual",
     annualNote: "Compromiso anual, facturado mes a mes",
     items: [
       "Productos y lotes ilimitados.",
