@@ -40,7 +40,7 @@ const translations = {
     "El cierre se vuelve pesado, la conciliacion tarda y los errores quedan ocultos hasta el final del turno.": "Closing becomes heavy, reconciliation takes longer, and errors stay hidden until the end of the shift.",
     "Funcionalidades principales": "Core features",
     "Cuatro piezas clave para ordenar una operacion que hoy esta dispersa.": "Four key pieces to organize an operation that is currently scattered.",
-    "La landing explica el valor del producto sin parecer un dashboard: tecnologia clara, visuales simples y beneficios concretos para comerciantes no tecnicos.": "The landing page explains the product value without feeling like a dashboard: clear technology, simple visuals, and concrete benefits for non-technical merchants.",
+    "La landing explica el valor del producto sin parecer un dashboard: tecnología clara, visuales simples y beneficios concretos para comerciantes no tecnicos.": "The landing page explains the product value without feeling like a dashboard: clear technology, simple visuals, and concrete benefits for non-technical merchants.",
     "Pedidos por WhatsApp": "WhatsApp orders",
     "Organiza la atencion del canal mas usado por tus clientes sin depender del celular todo el dia.": "Organize the channel your customers use most without depending on a phone all day.",
     "Inventario en tiempo real": "Real-time inventory",
@@ -68,17 +68,17 @@ const translations = {
     "Mas control diario": "More daily control",
     "Una lectura mas clara de inventario, pedidos y cobros desde el mismo ecosistema.": "A clearer view of inventory, orders, and payments from the same ecosystem.",
     "Mas rapidez operativa": "Faster operations",
-    "Decisiones mas rapidas para vender, responder, reponer y cerrar caja.": "Faster decisions to sell, respond, replenish, and close cash.",
+    "Decisiones mas rápidas para vender, responder, reponer y cerrar caja.": "Faster decisions to sell, respond, replenish, and close cash.",
     "Resumen visual": "Visual summary",
     "Operacion simple": "Simple operation",
     "Una vista rapida de lo que gana el comerciante cuando trabaja con una operacion mas ordenada.": "A quick view of what merchants gain when they work with a more organized operation.",
     "Interfaz clara para tareas del dia a dia.": "Clear interface for daily tasks.",
     "Flujos agiles para vender, reponer y cobrar.": "Agile flows to sell, replenish, and collect.",
     "Stock mas visible para evitar faltantes y mermas.": "More visible stock to avoid shortages and waste.",
-    "Adopcion rapida sin capacitacion pesada.": "Fast adoption without heavy training.",
+    "Adopcion rapida sin capacitación pesada.": "Fast adoption without heavy training.",
     "Confianza para el cliente final": "Trust for the end customer",
     "Si el stock es real, comprar por chat tambien se vuelve mas confiable.": "If stock is real, buying by chat also becomes more reliable.",
-    "El comerciante gana orden operativo, pero el cliente tambien gana respuestas mas rapidas, menos incertidumbre y confirmaciones mas claras.": "The merchant gains operational order, while the customer also gets faster responses, less uncertainty, and clearer confirmations.",
+    "El comerciante gana orden operativo, pero el cliente tambien gana respuestas mas rápidas, menos incertidumbre y confirmaciones mas claras.": "The merchant gains operational order, while the customer also gets faster responses, less uncertainty, and clearer confirmations.",
     "Stock validado": "Validated stock",
     "Menos riesgo de prometer productos que ya no estan disponibles.": "Less risk of promising products that are no longer available.",
     "Pagos confirmados": "Confirmed payments",
@@ -108,12 +108,12 @@ const translations = {
     "Suele ser amplio, pero poco aterrizado al comercio pequeno.": "Usually broad, but not grounded enough for small commerce.",
     "Se enfoca en perecibles, rotacion, pedidos y caja diaria.": "Focuses on perishables, rotation, orders, and daily cash flow.",
     "Empieza gratis y escala cuando tu operacion necesite mas control.": "Start free and scale when your operation needs more control.",
-    "Plan Free para ordenar el inventario basico y Plan Control para integrar ventas, pedidos, caja y trazabilidad en un solo flujo.": "Free Plan organizes basic inventory, while Control Plan integrates sales, orders, cash flow, and traceability in one workflow.",
+    "Plan Free para ordenar el inventario básico y Plan Control para integrar ventas, pedidos, caja y trazabilidad en un solo flujo.": "Free Plan organizes basic inventory, while Control Plan integrates sales, orders, cash flow, and traceability in one workflow.",
     "Mensual": "Monthly",
     "Anual facturado mensual": "Annual billed monthly",
     "El plan anual reduce el costo mensual con compromiso de 12 meses y cobro mes a mes.": "The annual plan lowers the monthly cost with a 12-month commitment and month-to-month billing.",
     "Plan Free": "Free Plan",
-    "Inventario basico para empezar sin costo": "Basic inventory to start at no cost",
+    "Inventario básico para empezar sin costo": "Basic inventory to start at no cost",
     "Para comercios que quieren dejar el cuaderno y ordenar lo esencial antes de digitalizar ventas y pedidos.": "For businesses that want to leave the notebook behind and organize the essentials before digitizing sales and orders.",
     "Siempre gratis": "Always free",
     "Hasta 40 productos y 20 lotes activos.": "Up to 40 products and 20 active batches.",
@@ -137,7 +137,7 @@ const translations = {
     "por mes": "per month",
     "Preguntas comunes antes de dar el siguiente paso.": "Common questions before taking the next step.",
     "La landing despeja dudas basicas rapido, sin sobrecargar de detalles tecnicos a un usuario no especializado.": "The landing page answers basic questions quickly, without overloading a non-specialist user with technical details.",
-    "Necesito saber de tecnologia para usar Entreprenly?": "Do I need to know technology to use Entreprenly?",
+    "Necesito saber de tecnología para usar Entreprenly?": "Do I need to know technology to use Entreprenly?",
     "No. La propuesta esta pensada para comerciantes que necesitan una herramienta simple, clara y aplicable desde el primer dia.": "No. The product is designed for merchants who need a simple, clear tool they can apply from day one.",
     "Puedo empezar sin integrar todo desde el inicio?": "Can I start without integrating everything from the beginning?",
     "Si. La estructura comercial de la landing plantea una adopcion por etapas para que el negocio avance segun su ritmo y necesidad.": "Yes. The commercial structure proposes staged adoption so the business can move at its own pace and need.",
@@ -259,7 +259,7 @@ const benefits = [
   },
   {
     title: "Mas rapidez operativa",
-    copy: "Decisiones mas rapidas para vender, responder, reponer y cerrar caja.",
+    copy: "Decisiones mas rápidas para vender, responder, reponer y cerrar caja.",
   },
 ];
 
@@ -314,7 +314,7 @@ const comparisonColumns = [
 const plans = [
   {
     name: "Plan Free",
-    title: "Inventario basico para empezar sin costo",
+    title: "Inventario básico para empezar sin costo",
     description: "Para comercios que quieren dejar el cuaderno y ordenar lo esencial antes de digitalizar ventas y pedidos.",
     monthly: "S/ 0",
     annualMonthly: "S/ 0",
@@ -353,7 +353,7 @@ const plans = [
 
 const faqs = [
   {
-    question: "Necesito saber de tecnologia para usar Entreprenly?",
+    question: "Necesito saber de tecnología para usar Entreprenly?",
     answer:
       "No. La propuesta esta pensada para comerciantes que necesitan una herramienta simple, clara y aplicable desde el primer dia.",
   },
@@ -365,10 +365,10 @@ const faqs = [
   {
     question: "La balanza inteligente es obligatoria desde el primer momento?",
     answer:
-      "No necesariamente. La propuesta puede crecer hacia una validacion fisica mas avanzada conforme el negocio lo requiera.",
+      "No necesariamente. La propuesta puede crecer hacia una validacion fisica más avanzada conforme el negocio lo requiera.",
   },
   {
-    question: "Sirve si ya vendo por WhatsApp todos los dias?",
+    question: "Sirve si ya vendo por WhatsApp todos los días?",
     answer:
       "Precisamente ahi esta una parte fuerte del valor: ordenar ese canal, reducir errores y conectarlo mejor con tu operacion diaria.",
   },
@@ -617,7 +617,7 @@ function renderLanding() {
             ${languagePicker()}
             <a href="./login.html" class="inline-flex min-h-14 items-center justify-center gap-2 rounded-full border border-brand-brownDeep/12 bg-white/80 px-5 py-3 text-sm font-bold text-brand-brownDeep backdrop-blur transition hover:-translate-y-0.5 hover:border-brand-brownDeep/25">
               ${icon("user", "h-4 w-4")}
-              ${t("Iniciar sesion")}
+              ${t("Iniciar sesión")}
             </a>
           </div>
 
@@ -658,10 +658,10 @@ function renderLanding() {
             <div>
               <p class="eyebrow">${t("Smart Retail para el comercio real")}</p>
               <h1 class="max-w-[11ch] text-balance text-5xl font-extrabold leading-[0.92] tracking-[-0.07em] sm:text-6xl lg:text-[5.4rem]">
-                ${t("Controla inventario, pedidos y cobros sin volver tu negocio mas complicado.")}
+                ${t("Controla inventario, pedidos y cobros sin volver tu negocio más complicado.")}
               </h1>
               <p class="mt-6 max-w-2xl text-lg leading-8 text-brand-gray">
-                ${t("Entreprenly conecta tus ventas por WhatsApp, la atencion en tienda y la validacion de stock con balanza inteligente para que trabajes con mas orden, menos merma y mas confianza desde el primer dia.")}
+                ${t("Entreprenly conecta tus ventas por WhatsApp, la atencion en tienda y la validacion de stock con balanza inteligente para que trabajes con más orden, menos merma y mas confianza desde el primer dia.")}
               </p>
 
               <div class="mt-8 flex flex-wrap gap-3">
@@ -707,7 +707,7 @@ function renderLanding() {
               eyebrow: "Funcionalidades principales",
               title: "Cuatro piezas clave para ordenar una operacion que hoy esta dispersa.",
             })}
-            <p class="text-lg leading-8 text-brand-gray">${t("La landing explica el valor del producto sin parecer un dashboard: tecnologia clara, visuales simples y beneficios concretos para comerciantes no tecnicos.")}</p>
+            <p class="text-lg leading-8 text-brand-gray">${t("La landing explica el valor del producto sin parecer un dashboard: tecnología clara, visuales simples y beneficios concretos para comerciantes no tecnicos.")}</p>
           </div>
 
           <div class="mt-10 grid items-stretch gap-6 lg:grid-cols-2">
@@ -769,7 +769,7 @@ function renderLanding() {
                   "Interfaz clara para tareas del dia a dia.",
                   "Flujos agiles para vender, reponer y cobrar.",
                   "Stock mas visible para evitar faltantes y mermas.",
-                  "Adopcion rapida sin capacitacion pesada.",
+                  "Adopcion rapida sin capacitación pesada.",
                 ].map((item) => `
                   <li class="flex items-start gap-3 rounded-2xl border border-white/70 bg-white/72 px-3.5 py-3 text-brand-brownDeep shadow-[0_8px_20px_rgba(81,30,0,0.05)]">
                     ${icon("check", "mt-0.5 h-4.5 w-4.5 shrink-0 text-brand-orange")}
@@ -786,7 +786,7 @@ function renderLanding() {
             ${sectionHeading({
               eyebrow: "Confianza para el cliente final",
               title: "Si el stock es real, comprar por chat tambien se vuelve mas confiable.",
-              copy: "El comerciante gana orden operativo, pero el cliente tambien gana respuestas mas rapidas, menos incertidumbre y confirmaciones mas claras.",
+              copy: "El comerciante gana orden operativo, pero el cliente tambien gana respuestas mas rápidas, menos incertidumbre y confirmaciones mas claras.",
             })}
 
             <div class="grid gap-4">
@@ -841,7 +841,7 @@ function renderLanding() {
           ${sectionHeading({
             eyebrow: "Planes",
             title: "Empieza gratis y escala cuando tu operacion necesite mas control.",
-            copy: "Plan Free para ordenar el inventario basico y Plan Control para integrar ventas, pedidos, caja y trazabilidad en un solo flujo.",
+            copy: "Plan Free para ordenar el inventario básico y Plan Control para integrar ventas, pedidos, caja y trazabilidad en un solo flujo.",
           })}
           <div class="mt-8 flex justify-center">
             <div class="inline-flex flex-col rounded-full border border-brand-brownDeep/10 bg-white/90 p-1 shadow-sm sm:flex-row">
