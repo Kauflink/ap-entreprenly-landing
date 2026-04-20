@@ -390,6 +390,16 @@ const state = {
   language: readPreference(STORAGE_KEYS.language, "es", ["es", "en"]),
 };
 
+const themeAssetSources = [
+  "./assets/brand-icon.png",
+  "./assets/brand-icon-light.png",
+  "./assets/brand-logo-transparent.png",
+  "./assets/brand-logo-light-transparent.png",
+];
+
+let themeTransitionTimer;
+let themeFadeAnimation;
+
 
 function readPreference(key, fallback, allowedValues) {
   try {
@@ -406,6 +416,17 @@ function persistPreference(key, value) {
   } catch {
     // Preferences remain usable during the current session even if storage is blocked.
   }
+}
+
+function preloadThemeAssets() {
+  if (typeof Image === "undefined") {
+    return;
+  }
+
+  themeAssetSources.forEach((src) => {
+    const image = new Image();
+    image.src = src;
+  });
 }
 
 function escapeHtml(value) {
@@ -430,17 +451,95 @@ function t(value) {
   return escapeHtml(tr(value));
 }
 
-function syncDocumentPreferences() {
+function updateFavicon() {
+  const favicon = document.querySelector('link[rel="icon"]');
+  if (favicon) {
+    const href = state.theme === "dark" ? "./assets/brand-icon.png" : "./assets/brand-icon-light.png";
+    if (favicon.getAttribute("href") !== href) {
+      favicon.setAttribute("href", href);
+    }
+  }
+}
+
+function syncDocumentPreferences(options = {}) {
   document.documentElement.dataset.theme = state.theme;
   document.documentElement.lang = state.language;
 
-  const favicon = document.querySelector('link[rel="icon"]');
-  if (favicon) {
-    favicon.setAttribute(
-      "href",
-      state.theme === "dark" ? "./assets/brand-icon.png" : "./assets/brand-icon-light.png"
-    );
+  if (options.deferFavicon) {
+    window.setTimeout(updateFavicon, 0);
+  } else {
+    updateFavicon();
   }
+}
+
+function themeFadeColor(theme) {
+  return theme === "dark" ? "#0c0f12" : "#fffdf8";
+}
+
+function getThemeFadeLayer() {
+  let layer = document.querySelector("[data-theme-fade-layer]");
+
+  if (!layer) {
+    layer = document.createElement("div");
+    layer.className = "theme-fade-layer";
+    layer.dataset.themeFadeLayer = "";
+    document.body.appendChild(layer);
+  }
+
+  return layer;
+}
+
+function suppressThemeTransitions() {
+  const shell = document.querySelector(".theme-shell");
+  if (!shell) {
+    return;
+  }
+
+  window.clearTimeout(themeTransitionTimer);
+  shell.classList.add("theme-no-transitions");
+  themeTransitionTimer = window.setTimeout(() => {
+    shell.classList.remove("theme-no-transitions");
+  }, 120);
+}
+
+function beginThemeTransition(nextTheme) {
+  if (window.matchMedia?.("(prefers-reduced-motion: reduce)").matches) {
+    return;
+  }
+
+  const layer = getThemeFadeLayer();
+  layer.style.backgroundColor = themeFadeColor(nextTheme);
+  layer.style.display = "block";
+
+  if (themeFadeAnimation) {
+    themeFadeAnimation.cancel();
+  }
+
+  if (!layer.animate) {
+    layer.style.opacity = "0.16";
+    window.setTimeout(() => {
+      layer.style.opacity = "0";
+      layer.style.display = "none";
+    }, 160);
+    return;
+  }
+
+  themeFadeAnimation = layer.animate(
+    [
+      { opacity: 0 },
+      { opacity: 0.18, offset: 0.32 },
+      { opacity: 0 },
+    ],
+    {
+      duration: 240,
+      easing: "cubic-bezier(0.2, 0.8, 0.2, 1)",
+      fill: "both",
+    }
+  );
+
+  themeFadeAnimation.onfinish = () => {
+    layer.style.display = "none";
+  };
 }
 
 function logoSrc() {
@@ -520,6 +619,32 @@ function themeToggleButton(extraClass = "") {
       <span class="sr-only">${t(label)}</span>
     </button>
   `;
+}
+
+function updateRenderedTheme() {
+  const shell = document.querySelector(".theme-shell");
+  if (shell) {
+    shell.classList.toggle("theme-dark", state.theme === "dark");
+    shell.classList.toggle("theme-light", state.theme !== "dark");
+  }
+
+  const nextLogoSrc = logoSrc();
+  document.querySelectorAll('img[alt="Entreprenly"]').forEach((image) => {
+    if (image.getAttribute("src") !== nextLogoSrc) {
+      image.setAttribute("src", nextLogoSrc);
+    }
+  });
+
+  const label = state.theme === "dark" ? "Cambiar a modo claro" : "Cambiar a modo oscuro";
+  const iconName = state.theme === "dark" ? "sun" : "moon";
+  document.querySelectorAll('[data-action="toggle-theme"]').forEach((button) => {
+    button.setAttribute("aria-label", tr(label));
+    button.setAttribute("title", tr(label));
+    button.innerHTML = `
+      ${icon(iconName, "h-5 w-5")}
+      <span class="sr-only">${t(label)}</span>
+    `;
+  });
 }
 
 function languageOptionButton(code, label, name) {
@@ -933,11 +1058,11 @@ function renderLanding() {
 
       <footer class="px-4 pb-10">
         <div class="mx-auto max-w-7xl rounded-[1.85rem] border border-brand-brownDeep/10 bg-white/88 px-6 py-8 shadow-card md:px-8">
-          <div class="grid gap-8 lg:grid-cols-[1.35fr_0.85fr_0.85fr]">
-            <div>
+          <div class="grid gap-8 text-center lg:grid-cols-[1.35fr_0.85fr_0.85fr] lg:text-left">
+            <div class="flex flex-col items-center lg:items-start">
               <img src="${logoSrc()}" alt="Entreprenly" class="h-12 w-auto sm:h-13" />
               <p class="mt-4 max-w-md leading-8 text-brand-gray">${t("Smart Retail para pequenos comercios que necesitan ordenar inventario, pedidos y caja sin sumar complejidad operativa.")}</p>
-              <div class="mt-5 flex items-center gap-3">
+              <div class="mt-5 flex items-center justify-center gap-3 lg:justify-start">
                 ${socialLinks.map((social) => `
                   <a href="${social.href}" aria-label="${escapeHtml(social.label)}" class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-brand-brownDeep/10 bg-[#F6F4F4] text-brand-brownEarth transition hover:border-brand-orange/25 hover:text-brand-orange">
                     ${icon(social.icon, "h-4.5 w-4.5")}
@@ -950,9 +1075,9 @@ function renderLanding() {
             ${footerColumn("Siguiente paso", ["Registrarse", "Comparar planes", "Resolver dudas", "Volver arriba"], ["./register.html", "#planes", "#faq", "#top"])}
           </div>
 
-          <div class="mt-8 flex flex-col gap-3 border-t border-brand-brownDeep/10 pt-5 text-sm text-brand-gray sm:flex-row sm:items-center sm:justify-between">
+          <div class="mt-8 flex flex-col items-center gap-3 border-t border-brand-brownDeep/10 pt-5 text-center text-sm text-brand-gray sm:flex-row sm:justify-between sm:text-left">
             <p>&copy; ${currentYear} ${t("Entreprenly by Kauflink. Todos los derechos reservados.")}</p>
-            <p>${t("Disenado para negocios pequenos que necesitan mas control y menos friccion.")}</p>
+            <p class="sm:text-right">${t("Disenado para negocios pequenos que necesitan mas control y menos friccion.")}</p>
           </div>
         </div>
       </footer>
@@ -962,18 +1087,16 @@ function renderLanding() {
 
 function heroVisual() {
   return `
-    <div class="relative min-h-155">
-      <div class="absolute left-10 top-28 h-28 w-28 rounded-full bg-brand-orange/15 blur-3xl"></div>
-      <div class="absolute right-12 top-24 h-24 w-24 rounded-full bg-brand-yellow/90 blur-3xl"></div>
-      <div class="absolute left-14 top-20 hidden rounded-full border border-brand-brownDeep/10 bg-white/75 px-4 py-2 text-[11px] font-bold uppercase tracking-[0.2em] text-brand-brownDeep/65 backdrop-blur sm:inline-flex">${t("Operacion conectada")}</div>
+    <div class="hero-stage relative flex flex-col gap-4 lg:block lg:min-h-155">
+      <div class="absolute left-14 top-20 hidden rounded-full border border-brand-brownDeep/10 bg-white/75 px-4 py-2 text-[11px] font-bold uppercase tracking-[0.2em] text-brand-brownDeep/65 backdrop-blur lg:inline-flex">${t("Operacion conectada")}</div>
 
-      <div class="absolute -top-6 left-0 w-[88%] rounded-[1.7rem] border border-brand-brownDeep/10 bg-white/95 p-5 shadow-card backdrop-blur sm:w-90">
+      <div class="hero-float-card hero-card-whatsapp relative w-full rounded-[1.7rem] border border-brand-brownDeep/10 bg-white/95 p-5 shadow-card backdrop-blur lg:absolute lg:-top-6 lg:left-0 lg:w-90">
         <span class="mini-tag">${t("Pedidos por WhatsApp")}</span>
         <div class="mt-4 max-w-[88%] rounded-[1.2rem] bg-brand-peach px-4 py-4 text-sm leading-6 text-brand-brownDeep">${t("Hola, necesito 2 kg de naranjas y 1 bolsa de manzanas.")}</div>
         <div class="ml-auto mt-3 max-w-[88%] rounded-[1.2rem] border border-brand-brownDeep/10 bg-[#fffaf4] px-4 py-4 text-sm leading-6 text-brand-black">${t("Stock verificado. Pedido listo para confirmar.")}</div>
       </div>
 
-      <div class="absolute right-0 top-36 w-[80%] rounded-[1.7rem] border border-brand-brownDeep/10 bg-brand-yellow/95 p-5 shadow-card backdrop-blur sm:w-[20rem]">
+      <div class="hero-float-card hero-card-inventory relative w-full rounded-[1.7rem] border border-brand-brownDeep/10 bg-brand-yellow/95 p-5 shadow-card backdrop-blur lg:absolute lg:right-0 lg:top-36 lg:w-[20rem]">
         <div class="flex items-center justify-between gap-3">
           <span class="mini-tag">${t("Inventario en tiempo real")}</span>
           <strong class="text-brand-brownDeep">${t("Stock validado")}</strong>
@@ -984,7 +1107,7 @@ function heroVisual() {
         </div>
       </div>
 
-      <div class="absolute bottom-6 left-6 right-6 rounded-[1.7rem] border border-brand-brownDeep/10 bg-white/95 p-5 shadow-card backdrop-blur sm:left-16 sm:right-auto sm:w-91">
+      <div class="hero-float-card hero-card-finance relative w-full rounded-[1.7rem] border border-brand-brownDeep/10 bg-white/95 p-5 shadow-card backdrop-blur lg:absolute lg:bottom-6 lg:left-16 lg:right-auto lg:w-91">
         <div class="flex items-center justify-between gap-3">
           <span class="mini-tag">${t("Control financiero")}</span>
           <strong class="text-brand-brownDeep">${t("Caja mas clara")}</strong>
@@ -1052,9 +1175,13 @@ root.addEventListener("click", (event) => {
   }
 
   if (action === "toggle-theme") {
-    state.theme = state.theme === "dark" ? "light" : "dark";
+    const nextTheme = state.theme === "dark" ? "light" : "dark";
+    suppressThemeTransitions();
+    beginThemeTransition(nextTheme);
+    state.theme = nextTheme;
     persistPreference(STORAGE_KEYS.theme, state.theme);
-    renderPreserveScroll();
+    syncDocumentPreferences({ deferFavicon: true });
+    updateRenderedTheme();
     return;
   }
 
@@ -1081,4 +1208,5 @@ root.addEventListener("click", (event) => {
 });
 
 
+preloadThemeAssets();
 render();
