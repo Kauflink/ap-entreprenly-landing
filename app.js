@@ -20,7 +20,9 @@ const translations = {
     "Ingles": "English",
     "Smart Retail para el comercio real": "Smart retail for real-world commerce",
     "Controla inventario, pedidos y cobros sin volver tu negocio mas complicado.": "Control inventory, orders, and payments without making your business more complicated.",
+    "Controla inventario, pedidos y cobros sin volver tu negocio más complicado.": "Control inventory, orders, and payments without making your business more complicated.",
     "Entreprenly conecta tus ventas por WhatsApp, la atencion en tienda y la validacion de stock con balanza inteligente para que trabajes con mas orden, menos merma y mas confianza desde el primer dia.": "Entreprenly connects WhatsApp sales, in-store service, and smart-scale stock validation so you can work with more order, less waste, and more confidence from day one.",
+    "Entreprenly conecta tus ventas por WhatsApp, la atencion en tienda y la validacion de stock con balanza inteligente para que trabajes con más orden, menos merma y mas confianza desde el primer dia.": "Entreprenly connects WhatsApp sales, in-store service, and smart-scale stock validation so you can work with more order, less waste, and more confidence from day one.",
     "Comenzar ahora": "Start now",
     "Ver planes": "View plans",
     "WhatsApp + tienda en un mismo flujo": "WhatsApp + store in one workflow",
@@ -28,7 +30,7 @@ const translations = {
     "Caja mas clara al cierre": "Clearer cash closing",
     "El problema": "The problem",
     "Tu negocio no pierde solo por vender menos. Tambien pierde por operar a ciegas.": "Your business does not lose only by selling less. It also loses by operating blind.",
-    "Entre el cuaderno, la memoria, el WhatsApp y la caja, el dia a dia se llena de errores pequenos que terminan costando tiempo, productos y confianza.": "Between notebooks, memory, WhatsApp, and cash closing, small daily errors end up costing time, products, and trust.",
+    "Entre el cuaderno, la memoria, el WhatsApp y la caja, el dia a dia se llena de errores pequeños que terminan costando tiempo, productos y confianza.": "Between notebooks, memory, WhatsApp, and cash closing, small daily errors end up costing time, products, and trust.",
     "Caos multicanal": "Multi-channel chaos",
     "Los pedidos por chat y las ventas del local no hablan entre si.": "Chat orders and in-store sales do not talk to each other.",
     "Cuando cada canal se atiende por separado, el stock deja de ser una fuente confiable para vender con seguridad.": "When each channel is handled separately, stock stops being a reliable source for selling with confidence.",
@@ -101,7 +103,7 @@ const translations = {
     "Se valida con balanza y alertas en tiempo real.": "Validated with scale readings and real-time alerts.",
     "Adopcion del equipo": "Team adoption",
     "Genera errores repetidos y mucho retrabajo.": "Creates repeated errors and a lot of rework.",
-    "Suele sentirse pesada para equipos pequenos.": "Often feels heavy for small teams.",
+    "Suele sentirse pesada para equipos pequeños.": "Often feels heavy for small teams.",
     "Prioriza una operacion simple, visual y clara.": "Prioritizes a simple, visual, and clear operation.",
     "Enfoque operativo": "Operational focus",
     "Se trabaja reaccionando cuando el problema ya ocurrio.": "Work happens reactively after the problem has already occurred.",
@@ -143,11 +145,13 @@ const translations = {
     "Si. La estructura comercial de la landing plantea una adopcion por etapas para que el negocio avance segun su ritmo y necesidad.": "Yes. The commercial structure proposes staged adoption so the business can move at its own pace and need.",
     "La balanza inteligente es obligatoria desde el primer momento?": "Is the smart scale mandatory from the start?",
     "No necesariamente. La propuesta puede crecer hacia una validacion fisica mas avanzada conforme el negocio lo requiera.": "Not necessarily. The product can grow toward more advanced physical validation as the business requires it.",
+    "No necesariamente. La propuesta puede crecer hacia una validacion fisica más avanzada conforme el negocio lo requiera.": "Not necessarily. The product can grow toward more advanced physical validation as the business requires it.",
     "Sirve si ya vendo por WhatsApp todos los días?": "Does it help if I already sell through WhatsApp every day?",
     "Precisamente ahi esta una parte fuerte del valor: ordenar ese canal, reducir errores y conectarlo mejor con tu operacion diaria.": "That is exactly where much of the value is: organizing that channel, reducing errors, and connecting it better with daily operations.",
     "Da el siguiente paso": "Take the next step",
     "Haz que tu negocio venda con mas orden y menos incertidumbre.": "Make your business sell with more order and less uncertainty.",
     "Entreprenly esta pensado para ayudarte a controlar lo importante sin convertir tu operacion en algo mas dificil de manejar.": "Entreprenly is designed to help you control what matters without making your operation harder to manage.",
+    "Smart Retail para pequeños comercios que necesitan ordenar inventario, pedidos y caja sin sumar complejidad operativa.": "Smart retail for small businesses that need to organize inventory, orders, and cash flow without adding operational complexity.",
     "Smart Retail para pequeños comercios que necesitan ordenar inventario, pedidos y caja sin sumar complejidad operativa.": "Smart retail for small businesses that need to organize inventory, orders, and cash flow without adding operational complexity.",
     "Explorar": "Explore",
     "Siguiente paso": "Next step",
@@ -156,7 +160,8 @@ const translations = {
     "Resolver dudas": "Answer questions",
     "Volver arriba": "Back to top",
     "Entreprenly by Kauflink. Todos los derechos reservados.": "Entreprenly by Kauflink. All rights reserved.",
-    "Diseñado para negocios pequenos que necesitan más control y menos fricción.": "Designed for small businesses that need more control and less friction.",
+    "Diseñado para negocios pequeños que necesitan más control y menos fricción.": "Designed for small businesses that need more control and less friction.",
+    "Diseñado para negocios pequeños que necesitan mas control y menos friccion.": "Designed for small businesses that need more control and less friction.",
     "Operación conectada": "Connected operation",
     "Hola, necesito 2 kg de naranjas y 1 bolsa de manzanas.": "Hi, I need 2 kg of oranges and 1 bag of apples.",
     "Stock verificado. Pedido listo para confirmar.": "Stock verified. Order ready to confirm.",
@@ -294,7 +299,7 @@ const comparisonRows = [
   {
     criterion: "Adopcion del equipo",
     manual: "Genera errores repetidos y mucho retrabajo.",
-    generic: "Suele sentirse pesada para equipos pequenos.",
+    generic: "Suele sentirse pesada para equipos pequeños.",
     entreprenly: "Prioriza una operacion simple, visual y clara.",
   },
   {
@@ -813,7 +818,7 @@ function renderLanding() {
           ${sectionHeading({
             eyebrow: "El problema",
             title: "Tu negocio no pierde solo por vender menos. Tambien pierde por operar a ciegas.",
-            copy: "Entre el cuaderno, la memoria, el WhatsApp y la caja, el dia a dia se llena de errores pequenos que terminan costando tiempo, productos y confianza.",
+            copy: "Entre el cuaderno, la memoria, el WhatsApp y la caja, el dia a dia se llena de errores pequeños que terminan costando tiempo, productos y confianza.",
           })}
           <div class="grid gap-5 lg:grid-cols-3">
             ${painPoints.map((item) => `
@@ -1061,7 +1066,7 @@ function renderLanding() {
           <div class="grid gap-8 text-center lg:grid-cols-[1.35fr_0.85fr_0.85fr] lg:text-left">
             <div class="flex flex-col items-center lg:items-start">
               <img src="${logoSrc()}" alt="Entreprenly" class="h-12 w-auto sm:h-13" />
-              <p class="mt-4 max-w-md leading-8 text-brand-gray">${t("Smart Retail para pequenos comercios que necesitan ordenar inventario, pedidos y caja sin sumar complejidad operativa.")}</p>
+              <p class="mt-4 max-w-md leading-8 text-brand-gray">${t("Smart Retail para pequeños comercios que necesitan ordenar inventario, pedidos y caja sin sumar complejidad operativa.")}</p>
               <div class="mt-5 flex items-center justify-center gap-3 lg:justify-start">
                 ${socialLinks.map((social) => `
                   <a href="${social.href}" aria-label="${escapeHtml(social.label)}" class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-brand-brownDeep/10 bg-[#F6F4F4] text-brand-brownEarth transition hover:border-brand-orange/25 hover:text-brand-orange">
@@ -1077,7 +1082,7 @@ function renderLanding() {
 
           <div class="mt-8 flex flex-col items-center gap-3 border-t border-brand-brownDeep/10 pt-5 text-center text-sm text-brand-gray sm:flex-row sm:justify-between sm:text-left">
             <p>&copy; ${currentYear} ${t("Entreprenly by Kauflink. Todos los derechos reservados.")}</p>
-            <p class="sm:text-right">${t("Disenado para negocios pequenos que necesitan mas control y menos friccion.")}</p>
+            <p class="sm:text-right">${t("Diseñado para negocios pequeños que necesitan mas control y menos friccion.")}</p>
           </div>
         </div>
       </footer>
