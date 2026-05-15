@@ -665,8 +665,8 @@ function languageOptionButton(code, label, name) {
 
 function languageOptions() {
   return `
-    ${languageOptionButton("es", "ES", "Espanol")}
-    ${languageOptionButton("en", "EN", "Ingles")}
+    ${languageOptionButton("es", "ES", "Español")}
+    ${languageOptionButton("en", "EN", "Inglés")}
   `;
 }
 
