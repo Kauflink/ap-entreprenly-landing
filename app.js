@@ -732,10 +732,10 @@ function renderLanding() {
     <div class="theme-shell ${state.theme === "dark" ? "theme-dark" : "theme-light"} min-h-screen bg-brand-white text-brand-black">
       <div class="bg-grid-overlay pointer-events-none fixed inset-0"></div>
 
-      <header class="sticky top-0 z-50 px-4 pt-4">
-        <div class="relative mx-auto flex max-w-7xl items-center justify-between gap-4 rounded-full border border-brand-brownDeep/10 bg-white/80 px-5 py-4 shadow-card backdrop-blur-xl">
-          <a href="#top" class="shrink-0">
-            <img src="${logoSrc()}" alt="Entreprenly" class="h-12 w-auto sm:h-13" />
+      <header class="sticky top-0 z-50 px-2 pt-3 sm:px-4 sm:pt-4">
+        <div class="relative mx-auto flex max-w-7xl items-center justify-between gap-2 rounded-full border border-brand-brownDeep/10 bg-white/80 px-3 py-3 shadow-card backdrop-blur-xl sm:gap-4 sm:px-5 sm:py-4">
+          <a href="#top" class="min-w-0 shrink">
+            <img src="${logoSrc()}" alt="Entreprenly" class="h-10 max-w-[7.5rem] object-contain sm:h-13 sm:max-w-none" />
           </a>
 
           <nav class="absolute left-1/2 hidden -translate-x-1/2 items-center gap-6 lg:flex">
@@ -751,15 +751,15 @@ function renderLanding() {
             </a>
           </div>
 
-          <div class="flex items-center gap-2 lg:hidden">
+          <div class="flex shrink-0 items-center gap-1 sm:gap-2 lg:hidden">
             ${themeToggleButton("lg:hidden")}
             ${mobileLanguageButton()}
-            <button type="button" class="inline-flex h-12 w-12 items-center justify-center rounded-full border border-brand-brownDeep/10 bg-brand-yellow text-brand-brownDeep" aria-expanded="${state.menuOpen}" aria-label="${t("Abrir menu")}" data-action="toggle-menu">
+            <button type="button" class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-brand-brownDeep/10 bg-brand-yellow text-brand-brownDeep sm:h-12 sm:w-12" aria-expanded="${state.menuOpen}" aria-label="${t("Abrir menu")}" data-action="toggle-menu">
               <span class="sr-only">${t("Abrir menu")}</span>
               <div class="flex flex-col gap-1.5">
-                <span class="h-0.5 w-5 rounded-full bg-current"></span>
-                <span class="h-0.5 w-5 rounded-full bg-current"></span>
-                <span class="h-0.5 w-5 rounded-full bg-current"></span>
+                <span class="h-0.5 w-4 rounded-full bg-current sm:w-5"></span>
+                <span class="h-0.5 w-4 rounded-full bg-current sm:w-5"></span>
+                <span class="h-0.5 w-4 rounded-full bg-current sm:w-5"></span>
               </div>
             </button>
           </div>
@@ -768,7 +768,7 @@ function renderLanding() {
         ${state.languageMenuOpen ? mobileLanguagePanel() : ""}
 
         ${state.menuOpen ? `
-          <div class="mx-auto mt-3 max-w-7xl rounded-[1.75rem] border border-brand-brownDeep/10 bg-white/95 p-4 shadow-card backdrop-blur-xl lg:hidden" data-mobile-menu>
+          <div class="mobile-menu-panel" data-mobile-menu>
             <nav class="flex flex-col gap-3">${navLinks(true)}</nav>
             <div class="mt-4">
               <a href="https://entreprenly.web.app/" class="inline-flex min-h-14 w-full items-center justify-center gap-2 rounded-full border border-brand-brownDeep/12 bg-white/80 px-5 py-3 text-sm font-bold text-brand-brownDeep backdrop-blur transition hover:-translate-y-0.5 hover:border-brand-brownDeep/25">
