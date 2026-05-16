@@ -665,8 +665,8 @@ function languageOptionButton(code, label, name) {
 
 function languageOptions() {
   return `
-    ${languageOptionButton("es", "ES", "Espanol")}
-    ${languageOptionButton("en", "EN", "Ingles")}
+    ${languageOptionButton("es", "ES", "Español")}
+    ${languageOptionButton("en", "EN", "Inglés")}
   `;
 }
 
@@ -745,7 +745,7 @@ function renderLanding() {
           <div class="hidden items-center gap-2 lg:flex">
             ${themeToggleButton()}
             ${languagePicker()}
-            <a href="https://entreprenly.web.app/" class="inline-flex min-h-14 items-center justify-center gap-2 rounded-full border border-brand-brownDeep/12 bg-white/80 px-5 py-3 text-sm font-bold text-brand-brownDeep backdrop-blur transition hover:-translate-y-0.5 hover:border-brand-brownDeep/25">
+            <a href="https://ap-entreprenly.web.app/login" class="inline-flex min-h-14 items-center justify-center gap-2 rounded-full border border-brand-brownDeep/12 bg-white/80 px-5 py-3 text-sm font-bold text-brand-brownDeep backdrop-blur transition hover:-translate-y-0.5 hover:border-brand-brownDeep/25">
               ${icon("user", "h-4 w-4")}
               ${t("Iniciar sesión")}
             </a>
@@ -771,9 +771,9 @@ function renderLanding() {
           <div class="mobile-menu-panel" data-mobile-menu>
             <nav class="flex flex-col gap-3">${navLinks(true)}</nav>
             <div class="mt-4">
-              <a href="https://entreprenly.web.app/" class="inline-flex min-h-14 w-full items-center justify-center gap-2 rounded-full border border-brand-brownDeep/12 bg-white/80 px-5 py-3 text-sm font-bold text-brand-brownDeep backdrop-blur transition hover:-translate-y-0.5 hover:border-brand-brownDeep/25">
+              <a href="https://ap-entreprenly.web.app/login" class="inline-flex min-h-14 w-full items-center justify-center gap-2 rounded-full border border-brand-brownDeep/12 bg-white/80 px-5 py-3 text-sm font-bold text-brand-brownDeep backdrop-blur transition hover:-translate-y-0.5 hover:border-brand-brownDeep/25">
                 ${icon("user", "h-4 w-4")}
-                ${t("Iniciar sesion")}
+                ${t("Iniciar sesión")}
               </a>
             </div>
           </div>
