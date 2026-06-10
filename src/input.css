@@ -173,7 +173,7 @@
   }
 
   .preference-icon-button {
-    @apply inline-flex h-12 w-12 items-center justify-center rounded-full
+    @apply inline-flex h-10 w-10 items-center justify-center rounded-full sm:h-12 sm:w-12
            border border-brand-brownDeep/10 bg-white/80 text-brand-brownDeep
            backdrop-blur transition hover:-translate-y-0.5 hover:border-brand-orange/25 hover:text-brand-orange;
   }
@@ -214,8 +214,15 @@
   }
 
   .mobile-preference-panel {
-    @apply mx-auto mt-3 max-w-7xl rounded-[1.75rem] border border-brand-brownDeep/10
-           bg-white/95 p-4 shadow-card backdrop-blur-xl lg:hidden;
+    @apply absolute left-2 right-2 top-full z-50 mx-auto mt-3 max-w-7xl rounded-[1.75rem]
+           border border-brand-brownDeep/10 bg-white/95 p-4 shadow-card backdrop-blur-xl
+           sm:left-4 sm:right-4 lg:hidden;
+  }
+
+  .mobile-menu-panel {
+    @apply absolute left-2 right-2 top-full z-50 mx-auto mt-3 max-w-7xl rounded-[1.75rem]
+           border border-brand-brownDeep/10 bg-white/95 p-4 shadow-card backdrop-blur-xl
+           sm:left-4 sm:right-4 lg:hidden;
   }
 
   .theme-shell.theme-no-transitions,
@@ -420,6 +427,7 @@
 .theme-dark .soft-card,
 .theme-dark .benefit-summary,
 .theme-dark .mobile-preference-panel,
+.theme-dark .mobile-menu-panel,
 .theme-dark .language-popover {
   background: rgba(20, 16, 14, 0.9) !important;
   border-color: rgba(255, 247, 225, 0.12) !important;
