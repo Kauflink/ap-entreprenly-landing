@@ -395,6 +395,21 @@ const state = {
   language: readPreference(STORAGE_KEYS.language, "es", ["es", "en"]),
 };
 
+// El Landing Page se reutiliza para dos proyectos: el tema claro dirige a la
+// aplicación de este proyecto y el tema oscuro a la del proyecto complementario.
+const APP_URLS = {
+  light: "https://daop.entreprenly.online",
+  dark: "https://ap.entreprenly.online",
+};
+
+function appBaseUrl() {
+  return state.theme === "dark" ? APP_URLS.dark : APP_URLS.light;
+}
+
+function appLink(path) {
+  return `${appBaseUrl()}/${path}`;
+}
+
 const themeAssetSources = [
   "./assets/brand-icon.png",
   "./assets/brand-icon-light.png",
@@ -640,6 +655,11 @@ function updateRenderedTheme() {
     }
   });
 
+  // Redirige los enlaces de login/registro al proyecto que corresponde al tema activo.
+  document.querySelectorAll("[data-app-link]").forEach((link) => {
+    link.setAttribute("href", appLink(link.dataset.appLink));
+  });
+
   const label = state.theme === "dark" ? "Cambiar a modo claro" : "Cambiar a modo oscuro";
   const iconName = state.theme === "dark" ? "sun" : "moon";
   document.querySelectorAll('[data-action="toggle-theme"]').forEach((button) => {
@@ -745,7 +765,7 @@ function renderLanding() {
           <div class="hidden items-center gap-2 lg:flex">
             ${themeToggleButton()}
             ${languagePicker()}
-            <a href="https://ap-entreprenly.web.app/login" class="inline-flex min-h-14 items-center justify-center gap-2 rounded-full border border-brand-brownDeep/12 bg-white/80 px-5 py-3 text-sm font-bold text-brand-brownDeep backdrop-blur transition hover:-translate-y-0.5 hover:border-brand-brownDeep/25">
+            <a href="${appLink("login")}" data-app-link="login" class="inline-flex min-h-14 items-center justify-center gap-2 rounded-full border border-brand-brownDeep/12 bg-white/80 px-5 py-3 text-sm font-bold text-brand-brownDeep backdrop-blur transition hover:-translate-y-0.5 hover:border-brand-brownDeep/25">
               ${icon("user", "h-4 w-4")}
               ${t("Iniciar sesión")}
             </a>
@@ -771,7 +791,7 @@ function renderLanding() {
           <div class="mobile-menu-panel" data-mobile-menu>
             <nav class="flex flex-col gap-3">${navLinks(true)}</nav>
             <div class="mt-4">
-              <a href="https://ap-entreprenly.web.app/login" class="inline-flex min-h-14 w-full items-center justify-center gap-2 rounded-full border border-brand-brownDeep/12 bg-white/80 px-5 py-3 text-sm font-bold text-brand-brownDeep backdrop-blur transition hover:-translate-y-0.5 hover:border-brand-brownDeep/25">
+              <a href="${appLink("login")}" data-app-link="login" class="inline-flex min-h-14 w-full items-center justify-center gap-2 rounded-full border border-brand-brownDeep/12 bg-white/80 px-5 py-3 text-sm font-bold text-brand-brownDeep backdrop-blur transition hover:-translate-y-0.5 hover:border-brand-brownDeep/25">
                 ${icon("user", "h-4 w-4")}
                 ${t("Iniciar sesión")}
               </a>
@@ -795,7 +815,7 @@ function renderLanding() {
               </p>
 
               <div class="mt-8 flex flex-wrap gap-3">
-                <a href="./register.html" class="cta-primary">${t("Comenzar ahora")}</a>
+                <a href="${appLink("register")}" data-app-link="register" class="cta-primary">${t("Comenzar ahora")}</a>
                 <a href="#planes" class="cta-secondary">${t("Ver planes")}</a>
               </div>
 
@@ -1017,7 +1037,7 @@ function renderLanding() {
                     </li>
                   `).join("")}
                 </ul>
-                <a href="./register.html" class="${plan.featured ? "cta-primary" : "cta-secondary"} mt-8 justify-center">${t(plan.cta)}</a>
+                <a href="${appLink("register")}" data-app-link="register" class="${plan.featured ? "cta-primary" : "cta-secondary"} mt-8 justify-center">${t(plan.cta)}</a>
               </article>
             `).join("")}
           </div>
@@ -1054,7 +1074,7 @@ function renderLanding() {
               </p>
             </div>
             <div class="flex flex-wrap gap-3">
-              <a href="./register.html" class="cta-primary">${t("Comenzar ahora")}</a>
+              <a href="${appLink("register")}" data-app-link="register" class="cta-primary">${t("Comenzar ahora")}</a>
               <a href="#planes" class="cta-secondary border-white/15 bg-white/10 text-brand-white">${t("Ver planes")}</a>
             </div>
           </div>
@@ -1077,7 +1097,7 @@ function renderLanding() {
             </div>
 
             ${footerColumn("Explorar", ["Como funciona", "Beneficios", "Planes", "FAQ"], ["#como-funciona", "#beneficios", "#planes", "#faq"])}
-            ${footerColumn("Siguiente paso", ["Registrarse", "Comparar planes", "Resolver dudas", "Volver arriba"], ["./register.html", "#planes", "#faq", "#top"])}
+            ${footerColumn("Siguiente paso", ["Registrarse", "Comparar planes", "Resolver dudas", "Volver arriba"], ["app:register", "#planes", "#faq", "#top"])}
           </div>
 
           <div class="mt-8 flex flex-col items-center gap-3 border-t border-brand-brownDeep/10 pt-5 text-center text-sm text-brand-gray sm:flex-row sm:justify-between sm:text-left">
@@ -1146,9 +1166,17 @@ function footerColumn(title, items, links) {
     <div>
       <h3 class="text-base font-bold text-brand-black">${t(title)}</h3>
       <ul class="mt-4 space-y-3 text-brand-gray">
-        ${items.map((item, index) => `
-          <li class="leading-6">${links[index] ? `<a href="${links[index]}">${t(item)}</a>` : t(item)}</li>
-        `).join("")}
+        ${items.map((item, index) => {
+          const link = links[index];
+          if (!link) {
+            return `<li class="leading-6">${t(item)}</li>`;
+          }
+          if (link.startsWith("app:")) {
+            const path = link.slice(4);
+            return `<li class="leading-6"><a href="${appLink(path)}" data-app-link="${path}">${t(item)}</a></li>`;
+          }
+          return `<li class="leading-6"><a href="${link}">${t(item)}</a></li>`;
+        }).join("")}
       </ul>
     </div>
   `;
