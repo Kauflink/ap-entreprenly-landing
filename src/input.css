@@ -213,6 +213,22 @@
     @apply bg-brand-orange text-brand-white shadow-[0_14px_30px_rgba(243,131,19,0.22)];
   }
 
+  .billing-toggle {
+    @apply grid w-full max-w-sm grid-cols-1 gap-1 rounded-[1.55rem]
+           border border-brand-brownDeep/10 bg-white/90 p-1 shadow-sm sm:inline-grid sm:w-auto
+           sm:max-w-none sm:grid-cols-2 sm:rounded-full;
+  }
+
+  .billing-option {
+    @apply min-h-12 rounded-[1.25rem] px-4 py-3 text-center text-sm font-bold
+           text-brand-brownEarth transition hover:bg-brand-yellow/70 hover:text-brand-brownDeep
+           sm:rounded-full sm:px-5;
+  }
+
+  .billing-option.is-active {
+    @apply bg-brand-yellow text-brand-brownDeep shadow-[0_10px_22px_rgba(243,131,19,0.18)];
+  }
+
   .mobile-preference-panel {
     @apply absolute left-2 right-2 top-full z-50 mx-auto mt-3 max-w-7xl rounded-[1.75rem]
            border border-brand-brownDeep/10 bg-white/95 p-4 shadow-card backdrop-blur-xl
@@ -475,6 +491,30 @@
 .theme-dark .pill-tag {
   background-color: rgba(243, 131, 19, 0.18) !important;
   color: #ffd678 !important;
+}
+
+.theme-dark .nav-link:hover {
+  background-color: rgba(255, 214, 120, 0.12) !important;
+  color: #f38313 !important;
+}
+
+.theme-dark .billing-toggle {
+  background-color: rgba(20, 16, 14, 0.86) !important;
+  border-color: rgba(255, 247, 225, 0.14) !important;
+}
+
+.theme-dark .billing-option {
+  color: #fff7e1 !important;
+}
+
+.theme-dark .billing-option:hover {
+  background-color: rgba(255, 214, 120, 0.12) !important;
+  color: #ffd678 !important;
+}
+
+.theme-dark .billing-option.is-active {
+  background-color: rgba(255, 214, 120, 0.22) !important;
+  color: #fff7e1 !important;
 }
 
 .theme-dark .cta-secondary,

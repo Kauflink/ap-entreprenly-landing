@@ -385,6 +385,70 @@ const socialLinks = [
   { label: "WhatsApp", href: "#top", icon: "whatsapp" },
 ];
 
+const spanishTextFixes = [
+  [/\bComo funciona\b/g, "Cómo funciona"],
+  [/\bIniciar sesion\b/g, "Iniciar sesión"],
+  [/\bAbrir menu\b/g, "Abrir menú"],
+  [/\bEspanol\b/g, "Español"],
+  [/\bIngles\b/g, "Inglés"],
+  [/\boperacion\b/g, "operación"],
+  [/\boperaciones\b/g, "operaciones"],
+  [/\batencion\b/g, "atención"],
+  [/\bvalidacion\b/g, "validación"],
+  [/\bValidacion\b/g, "Validación"],
+  [/\badopcion\b/g, "adopción"],
+  [/\bAdopcion\b/g, "Adopción"],
+  [/\btecnologia\b/g, "tecnología"],
+  [/\bTecnologia\b/g, "Tecnología"],
+  [/\bbasico\b/g, "básico"],
+  [/\bbasica\b/g, "básica"],
+  [/\bbasicas\b/g, "básicas"],
+  [/\bdia\b/g, "día"],
+  [/\bdias\b/g, "días"],
+  [/\bmas\b/g, "más"],
+  [/\bMas\b/g, "Más"],
+  [/\btambien\b/g, "también"],
+  [/\brapida\b/g, "rápida"],
+  [/\brapidas\b/g, "rápidas"],
+  [/\bagiles\b/g, "ágiles"],
+  [/\bfisica\b/g, "física"],
+  [/\blogica\b/g, "lógica"],
+  [/\bgenericos\b/g, "genéricos"],
+  [/\bGestion\b/g, "Gestión"],
+  [/\bgestion\b/g, "gestión"],
+  [/\bbusqueda\b/g, "búsqueda"],
+  [/\belectronicos\b/g, "electrónicos"],
+  [/\bcatalogo\b/g, "catálogo"],
+  [/\bModulo\b/g, "Módulo"],
+  [/\bFacturacion\b/g, "Facturación"],
+  [/\brotacion\b/g, "rotación"],
+  [/\bocurrio\b/g, "ocurrió"],
+  [/\bperdida\b/g, "pérdida"],
+  [/\bpequeno\b/g, "pequeño"],
+  [/\bpequenos\b/g, "pequeños"],
+  [/\bpequeÃ±o\b/g, "pequeño"],
+  [/\bpequeÃ±os\b/g, "pequeños"],
+  [/\bmÃ¡s\b/g, "más"],
+  [/\brÃ¡pida\b/g, "rápida"],
+  [/\brÃ¡pidas\b/g, "rápidas"],
+  [/\bcapacitaciÃ³n\b/g, "capacitación"],
+  [/\bvalidaciÃ³n\b/g, "validación"],
+  [/\brotaciÃ³n\b/g, "rotación"],
+  [/\bOperaciÃ³n\b/g, "Operación"],
+  [/\bCierre mÃ¡s confiable\b/g, "Cierre más confiable"],
+  [/\bDiseÃ±ado\b/g, "Diseñado"],
+  [/\bfricciÃ³n\b/g, "fricción"],
+  [/\btecnologÃ­a\b/g, "tecnología"],
+  [/\bdÃ­as\b/g, "días"],
+  [/\bSi\./g, "Sí."],
+  [/\bahi\b/g, "ahí"],
+  [/\besta pensado\b/g, "está pensado"],
+  [/\besta una parte\b/g, "está una parte"],
+  [/\bno estan\b/g, "no están"],
+  [/\by atencion\b/g, "y atención"],
+  [/\bDisenado\b/g, "Diseñado"],
+];
+
 const root = document.getElementById("app");
 
 const state = {
@@ -461,10 +525,17 @@ function escapeHtml(value) {
 
 function tr(value) {
   if (state.language === "es") {
-    return value;
+    return fixSpanishText(value);
   }
 
   return translations.en[value] || value;
+}
+
+function fixSpanishText(value) {
+  return spanishTextFixes.reduce(
+    (text, [pattern, replacement]) => text.replace(pattern, replacement),
+    String(value ?? "")
+  );
 }
 
 function t(value) {
@@ -621,8 +692,8 @@ function renderPreserveScroll() {
 
 function navLinks(mobile = false) {
   const baseClass = mobile
-    ? "rounded-2xl px-4 py-3 text-sm font-semibold text-brand-brownEarth transition hover:bg-brand-yellow"
-    : "rounded-full px-1 py-1 text-sm font-semibold text-brand-brownEarth transition hover:text-brand-orange";
+    ? "nav-link rounded-2xl px-4 py-3 text-sm font-semibold text-brand-brownEarth transition hover:bg-brand-yellow"
+    : "nav-link rounded-full px-1 py-1 text-sm font-semibold text-brand-brownEarth transition hover:text-brand-orange";
 
   return navItems
     .map((item) => `<a href="${item.href}" class="${baseClass}" data-nav-link>${t(item.label)}</a>`)
@@ -994,12 +1065,12 @@ function renderLanding() {
             copy: "Plan Free para ordenar el inventario básico y Plan Control para integrar ventas, pedidos, caja y trazabilidad en un solo flujo.",
           })}
           <div class="mt-8 flex justify-center">
-            <div class="inline-flex flex-col rounded-full border border-brand-brownDeep/10 bg-white/90 p-1 shadow-sm sm:flex-row">
+            <div class="billing-toggle">
               ${[
                 { id: "monthly", label: "Mensual" },
                 { id: "annual", label: "Anual facturado mensual" },
               ].map((option) => `
-                <button type="button" data-action="set-landing-billing" data-cycle="${option.id}" class="rounded-full px-5 py-3 text-sm font-bold transition ${state.billingCycle === option.id ? "bg-brand-yellow text-brand-brownDeep shadow-[0_10px_22px_rgba(243,131,19,0.18)]" : "text-brand-brownEarth hover:text-brand-brownDeep"}">${t(option.label)}</button>
+                <button type="button" data-action="set-landing-billing" data-cycle="${option.id}" class="billing-option ${state.billingCycle === option.id ? "is-active" : ""}">${t(option.label)}</button>
               `).join("")}
             </div>
           </div>
