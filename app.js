@@ -28,6 +28,15 @@ const translations = {
     "WhatsApp + tienda en un mismo flujo": "WhatsApp + store in one workflow",
     "Stock validado en tiempo real": "Stock validated in real time",
     "Caja mas clara al cierre": "Clearer cash closing",
+    "Video informativo": "Informational video",
+    "Conoce Entreprenly en accion.": "See Entreprenly in action.",
+    "Mira una explicacion breve de como la plataforma ayuda a ordenar pedidos, inventario y caja en un flujo simple para comercios pequenos.": "Watch a short explanation of how the platform helps organize orders, inventory, and cash flow in a simple workflow for small businesses.",
+    "Ver video en YouTube": "Watch video on YouTube",
+    "Video de la plataforma": "Platform video",
+    "About the team": "About the team",
+    "Conoce al equipo": "Meet the team",
+    "Conoce al equipo que construye Entreprenly y la vision detras de la plataforma.": "Meet the team building Entreprenly and the vision behind the platform.",
+    "Ver equipo en YouTube": "Watch team video on YouTube",
     "El problema": "The problem",
     "Tu negocio no pierde solo por vender menos. Tambien pierde por operar a ciegas.": "Your business does not lose only by selling less. It also loses by operating blind.",
     "Entre el cuaderno, la memoria, el WhatsApp y la caja, el dia a dia se llena de errores pequeños que terminan costando tiempo, productos y confianza.": "Between notebooks, memory, WhatsApp, and cash closing, small daily errors end up costing time, products, and trust.",
@@ -421,6 +430,11 @@ const spanishTextFixes = [
   [/\bcatalogo\b/g, "catálogo"],
   [/\bModulo\b/g, "Módulo"],
   [/\bFacturacion\b/g, "Facturación"],
+  [/\baccion\b/g, "acción"],
+  [/\bexplicacion\b/g, "explicación"],
+  [/\bcomo\b/g, "cómo"],
+  [/\bvision\b/g, "visión"],
+  [/\bdetras\b/g, "detrás"],
   [/\brotacion\b/g, "rotación"],
   [/\bocurrio\b/g, "ocurrió"],
   [/\bperdida\b/g, "pérdida"],
@@ -904,6 +918,56 @@ function renderLanding() {
             ${heroVisual()}
           </div>
         </section>
+
+        ${sectionShell(`
+          <div class="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+            <div>
+              <p class="eyebrow">${t("Video informativo")}</p>
+              <h2 class="text-balance text-4xl font-extrabold leading-tight tracking-[-0.06em] text-brand-black md:text-5xl">${t("Conoce Entreprenly en accion.")}</h2>
+              <p class="mt-4 max-w-2xl text-lg leading-8 text-brand-gray">
+                ${t("Mira una explicacion breve de como la plataforma ayuda a ordenar pedidos, inventario y caja en un flujo simple para comercios pequenos.")}
+              </p>
+              <a href="https://youtu.be/nPIHYqd0MtM?si=6aoHcb7D3_JV-2bt" target="_blank" rel="noopener noreferrer" class="cta-secondary mt-7">${t("Ver video en YouTube")}</a>
+            </div>
+
+            <div class="video-card">
+              <iframe
+                class="absolute inset-0 h-full w-full"
+                src="https://www.youtube-nocookie.com/embed/nPIHYqd0MtM?si=6aoHcb7D3_JV-2bt"
+                title="Entreprenly platform"
+                loading="lazy"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+              ></iframe>
+            </div>
+          </div>
+        `, { accent: true })}
+
+        ${sectionShell(`
+          <div class="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+            <div>
+              <p class="eyebrow">${t("About the team")}</p>
+              <h2 class="text-balance text-4xl font-extrabold leading-tight tracking-[-0.06em] text-brand-black md:text-5xl">${t("Conoce al equipo")}</h2>
+              <p class="mt-4 max-w-2xl text-lg leading-8 text-brand-gray">
+                ${t("Conoce al equipo que construye Entreprenly y la vision detras de la plataforma.")}
+              </p>
+              <a href="https://youtu.be/h9b3_FMDnR4" target="_blank" rel="noopener noreferrer" class="cta-secondary mt-7">${t("Ver equipo en YouTube")}</a>
+            </div>
+
+            <div class="video-card">
+              <iframe
+                class="absolute inset-0 h-full w-full"
+                src="https://www.youtube-nocookie.com/embed/h9b3_FMDnR4"
+                title="Entreprenly team"
+                loading="lazy"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+              ></iframe>
+            </div>
+          </div>
+        `)}
 
         ${sectionShell(`
           ${sectionHeading({
