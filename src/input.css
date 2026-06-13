@@ -137,6 +137,11 @@
     @apply rounded-3xl border border-brand-brownDeep/10 p-6 shadow-card;
   }
 
+  .video-card {
+    @apply relative aspect-video overflow-hidden rounded-[1.75rem] border border-brand-brownDeep/10
+           bg-brand-black shadow-soft;
+  }
+
   /* Etiqueta pequeña oscura */
   .mini-tag {
     @apply inline-flex rounded-full bg-brand-brownDeep/10 px-3 py-1 text-[11px] font-extrabold uppercase tracking-[0.18em] text-brand-brownDeep;
@@ -444,7 +449,8 @@
 .theme-dark .benefit-summary,
 .theme-dark .mobile-preference-panel,
 .theme-dark .mobile-menu-panel,
-.theme-dark .language-popover {
+.theme-dark .language-popover,
+.theme-dark .video-card {
   background: rgba(20, 16, 14, 0.9) !important;
   border-color: rgba(255, 247, 225, 0.12) !important;
   box-shadow: 0 22px 60px rgba(0, 0, 0, 0.28) !important;
