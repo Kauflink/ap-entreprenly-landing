@@ -914,13 +914,13 @@ function renderLanding() {
               <p class="mt-4 max-w-2xl text-lg leading-8 text-brand-gray">
                 ${t("Mira una explicacion breve de como la plataforma ayuda a ordenar pedidos, inventario y caja en un flujo simple para comercios pequenos.")}
               </p>
-              <a href="https://youtu.be/nPIHYqd0MtM?si=6aoHcb7D3_JV-2bt" target="_blank" rel="noopener noreferrer" class="cta-secondary mt-7">${t("Ver video en YouTube")}</a>
+              <a href="https://youtu.be/JFLwl_6-Alg" target="_blank" rel="noopener noreferrer" class="cta-secondary mt-7">${t("Ver video en YouTube")}</a>
             </div>
 
             <div class="video-card">
               <iframe
                 class="absolute inset-0 h-full w-full"
-                src="https://www.youtube-nocookie.com/embed/nPIHYqd0MtM?si=6aoHcb7D3_JV-2bt"
+                src="https://www.youtube-nocookie.com/embed/JFLwl_6-Alg?si=6aoHcb7D3_JV-2bt"
                 title="Entreprenly platform"
                 loading="lazy"
                 referrerpolicy="strict-origin-when-cross-origin"
@@ -939,13 +939,13 @@ function renderLanding() {
               <p class="mt-4 max-w-2xl text-lg leading-8 text-brand-gray">
                 ${t("Conoce al equipo que construye Entreprenly y la vision detras de la plataforma.")}
               </p>
-              <a href="https://youtu.be/h9b3_FMDnR4" target="_blank" rel="noopener noreferrer" class="cta-secondary mt-7">${t("Ver equipo en YouTube")}</a>
+              <a href="https://youtu.be/vh1XZmKGKLE" target="_blank" rel="noopener noreferrer" class="cta-secondary mt-7">${t("Ver equipo en YouTube")}</a>
             </div>
 
             <div class="video-card">
               <iframe
                 class="absolute inset-0 h-full w-full"
-                src="https://www.youtube-nocookie.com/embed/h9b3_FMDnR4"
+                src="https://www.youtube-nocookie.com/embed/vh1XZmKGKLE"
                 title="Entreprenly team"
                 loading="lazy"
                 referrerpolicy="strict-origin-when-cross-origin"
