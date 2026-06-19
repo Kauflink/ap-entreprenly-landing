@@ -473,19 +473,11 @@ const state = {
   language: readPreference(STORAGE_KEYS.language, "es", ["es", "en"]),
 };
 
-// El Landing Page se reutiliza para dos proyectos: el tema claro dirige a la
-// aplicación de este proyecto y el tema oscuro a la del proyecto complementario.
-const APP_URLS = {
-  light: "https://daop.entreprenly.online",
-  dark: "https://ap.entreprenly.online",
-};
-
-function appBaseUrl() {
-  return state.theme === "dark" ? APP_URLS.dark : APP_URLS.light;
-}
+// Login y registro siempre dirigen a la aplicación principal.
+const APP_BASE_URL = "https://daop.entreprenly.online";
 
 function appLink(path) {
-  return `${appBaseUrl()}/${path}`;
+  return `${APP_BASE_URL}/${path}`;
 }
 
 const themeAssetSources = [
@@ -738,11 +730,6 @@ function updateRenderedTheme() {
     if (image.getAttribute("src") !== nextLogoSrc) {
       image.setAttribute("src", nextLogoSrc);
     }
-  });
-
-  // Redirige los enlaces de login/registro al proyecto que corresponde al tema activo.
-  document.querySelectorAll("[data-app-link]").forEach((link) => {
-    link.setAttribute("href", appLink(link.dataset.appLink));
   });
 
   const label = state.theme === "dark" ? "Cambiar a modo claro" : "Cambiar a modo oscuro";
