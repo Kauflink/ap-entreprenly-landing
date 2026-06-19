@@ -4,7 +4,7 @@ package-lock.json
 yarn.lock
 
 # Build output
-styles.css
+# styles.css is committed: Pages serves this repo directly from the branch (managed builder), no Actions build step
 dist/
 build/
 
