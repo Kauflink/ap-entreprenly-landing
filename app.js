@@ -474,7 +474,7 @@ const state = {
 };
 
 // Login y registro siempre dirigen a la aplicación principal.
-const APP_BASE_URL = "https://daop.entreprenly.online";
+const APP_BASE_URL = "https://ap.entreprenly.online";
 
 function appLink(path) {
   return `${APP_BASE_URL}/${path}`;
