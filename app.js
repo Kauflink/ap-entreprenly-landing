@@ -18,7 +18,7 @@ const DEFAULT_LANGUAGE = "en";
 const DEFAULT_THEME = "light";
 
 // Login and sign up always point to the main application.
-const APP_BASE_URL = "https://daop.entreprenly.online";
+const APP_BASE_URL = "https://ap.entreprenly.online";
 
 const themeAssetSources = [
   "./assets/brand-icon.png",
