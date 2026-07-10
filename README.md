@@ -38,8 +38,9 @@ Genera los estilos minificados para producción:
 npm run build
 ```
 
-> `styles.css` es un artefacto de compilación (está en `.gitignore`). Debe
-> generarse con `npm run build` antes de desplegar.
+> `styles.css` es el CSS ya compilado y está versionado en el repo, porque
+> GitHub Pages lo sirve directamente desde la rama. Si modificas `input.css`,
+> regénéralo con `npm run build` y commitea el `styles.css` resultante.
 
 ## Estructura del Proyecto
 
@@ -48,7 +49,7 @@ npm run build
 ├── index.html          # Página principal (marcado + clases de Tailwind)
 ├── app.js              # Tema, idioma e interacciones (menús, toggles, FAQ…)
 ├── input.css           # Estilos fuente de Tailwind (tema, componentes, dark mode)
-├── styles.css          # CSS compilado (generado, ignorado por git)
+├── styles.css          # CSS compilado por Tailwind (versionado en el repo)
 ├── package.json        # Scripts y dependencias
 ├── .gitignore          # Archivos ignorados
 ├── i18n/               # Traducciones
@@ -56,6 +57,14 @@ npm run build
 │   └── es.json
 └── assets/             # Logos, iconos del personaje y capturas
 ```
+
+## Despliegue
+
+El sitio se publica con **GitHub Pages** sirviendo directamente la rama `main`
+(sin paso de build en CI). Cada push a `main` actualiza el sitio en vivo:
+
+- URL: https://landing.entreprenly.online
+- El dominio personalizado se define en el archivo `CNAME` de la raíz.
 
 ## Licencia
 
